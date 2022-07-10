@@ -1,27 +1,28 @@
 #!python
-#from ctypes import alignment
-#from msilib.schema import Font
 from lib2to3.pgen2.token import SLASH
 import openpyxl as xl
 from tkinter import *
-from tkinter.filedialog import askopenfilename
+from tkinter.filedialog import askdirectory, askopenfilename
 
 COPY_COLS = 3  
-#FOLDER = 'H:/temp/'
 ADD_SLASH = '/'
 
 coun_raz = 1 
+status = 1
 
 base = Tk()
 base.title("Мержит файлы в один, по очереди")
-#base.resizable(False, False)
-base.geometry("600x500")
-
-folder_name = StringVar()
+base.resizable(False, False)
+base.geometry("600x400")
 
 def browsefunc():
     global coun_raz
-    folder = folder_name.get()
+    global status
+    global folder
+    
+    if status:
+        folder = askdirectory()
+        status = 0
 
     filename1 = askopenfilename(filetypes=(("excel files","*.xlsx"),
                                             ("All files","*.*")))
@@ -42,9 +43,7 @@ def browsefunc():
         
     wb1.close    
     wb2.save(folder + ADD_SLASH + "merged.xlsx")
-    wb2.close
-
-    folder_name.set(folder)
+    wb2.close  
 
     coun_raz += 1
     
@@ -61,15 +60,8 @@ lab_coun = Label(
             width=15, height=5, bg='white', fg='black',
             font=('Times New Roman', 24), anchor=CENTER
             )
-name_entry = Entry(
-                base, textvariable=folder_name,
-                font=('Times New Roman', 18))
 
-
-#but_first.grid(row=0, column=0)
-#lab_coun.grid(row=0, column=1)
 but_first.pack(fill=BOTH, expand=TRUE)
 lab_coun.pack(fill=BOTH, expand=TRUE)
-name_entry.pack(fill=BOTH, expand=TRUE)
 
 base.mainloop()
