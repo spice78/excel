@@ -1,7 +1,7 @@
 #!python
 import openpyxl as xl
 
-COPY_ROWS = 94
+# COPY_ROWS = 94
 COPY_COLS = 3  
 FOLDER = 'H:/temp/'
 
