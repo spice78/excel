@@ -95,18 +95,18 @@ def equalfunc():
 
 but_save = Button(
             base, 
-            text="Создание файла 'откуда'!",
+            text="Создание файла 'который'!",
             bg='black', fg='white', width=20, height=5, font=('Times New Roman', 18),
             justify='left', command=save_file)
 but_prima = Button(
             base, 
-            text="Выбор файлов которые,\nзамержиться в 'откуда'!",
+            text="Выбор файлов 'мельких',\nзамержиться в 'который'!",
             bg='white', fg='black', width=20, height=5, font=('Times New Roman', 18), 
             justify='left', command=browsefunc
             )
 but_secunda = Button(
             base, 
-            text="Первый файл 'откуда', второй 'большой'.\nИ сохранить 'итог'!",
+            text="Первый файл 'который', второй 'большой'.\nСохраниться 'который'!",
             bg='black', fg='white', width=20, height=5, font=('Times New Roman', 18), 
             justify='left', command=equalfunc
             )
